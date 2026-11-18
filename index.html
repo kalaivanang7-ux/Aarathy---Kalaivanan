@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Aarathy &amp; Kalaivanan | Wedding Invitation</title>
+<meta name="description" content="Aarathy &amp; Kalaivanan invite you to celebrate their wedding and reception with your love and blessings. Wedding 27-01-2027, Guruvayur. Reception 30-01-2027, Thiruvananthapuram.">
+<meta name="theme-color" content="#38402a">
+<link rel="icon" href="assets/images/favicon.png" type="image/png">
+<link rel="apple-touch-icon" href="assets/images/favicon.png">
+<!-- Social / WhatsApp preview. After deploying, replace YOUR-USERNAME/REPO with your real GitHub Pages address (see README). -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="Aarathy &amp; Kalaivanan | Wedding Invitation">
+<meta property="og:description" content="Wedding 27-01-2027, Guruvayur. Reception 30-01-2027, Thiruvananthapuram. Please join us with your love and blessings.">
+<meta property="og:image" content="https://YOUR-USERNAME.github.io/REPO/assets/images/og-image.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:url" content="https://YOUR-USERNAME.github.io/REPO/">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="stylesheet" href="style.css">
+<link rel="preload" as="image" href="assets/images/cover.webp">
+</head>
+<body class="locked">
+
+<!-- A. OPENING SCREEN -->
+<div id="cover" class="cover">
+  <img class="cover-img" src="assets/images/cover.webp" alt="Aarathy and Kalaivanan wedding invitation cover, 27-01-27">
+  <div class="petals" id="petals" aria-hidden="true"></div>
+  <button id="openBtn" class="open-btn" type="button">Open Invitation</button>
+</div>
+
+<main id="main" class="main" aria-hidden="true">
+
+  <!-- B. MAIN INVITATION (original wedding card) -->
+  <section class="sec card-sec" id="invitation">
+    <img class="card-img" src="assets/images/wedding.webp" alt="Wedding invitation: Aarathy and Kalaivanan, 27-01-2027, 9:00 AM to 10:00 AM, Sri Krishna Temple, Guruvayur, Thrissur District" width="1000" height="1408">
+    <p class="scroll-hint" aria-hidden="true">&#8964;</p>
+  </section>
+
+  <!-- C. WEDDING DETAILS (filled from CONFIG in script.js) -->
+  <section class="sec details reveal" id="wedding">
+    <h2>Wedding</h2>
+    <div class="rule"></div>
+    <p class="quote" data-cfg="message"></p>
+    <p class="big" data-cfg="weddingDateText"></p>
+    <p class="mid" data-cfg="weddingTime"></p>
+    <p class="venue" data-cfg="weddingVenue"></p>
+    <p class="addr" data-cfg="weddingPlace"></p>
+    <div class="count" id="count" aria-live="off">
+      <div><b id="cd-d">--</b><span>Days</span></div>
+      <div><b id="cd-h">--</b><span>Hours</span></div>
+      <div><b id="cd-m">--</b><span>Minutes</span></div>
+      <div><b id="cd-s">--</b><span>Seconds</span></div>
+    </div>
+    <a class="btn" id="mapWedding" target="_blank" rel="noopener">Get directions</a>
+  </section>
+
+  <!-- D. RECEPTION -->
+  <section class="sec card-sec" id="reception-card">
+    <img class="card-img" src="assets/images/reception.webp" alt="Reception invitation: 30-01-2027, 5:00 PM onwards, Al-Saj Conventions (Comet), Kazhakkoottam, Thiruvananthapuram, Keralam" width="1000" height="1408" loading="lazy">
+  </section>
+
+  <section class="sec details reveal" id="reception">
+    <h2>Reception</h2>
+    <div class="rule"></div>
+    <p class="big" data-cfg="receptionDateText"></p>
+    <p class="mid" data-cfg="receptionTime"></p>
+    <p class="venue" data-cfg="receptionVenue"></p>
+    <p class="addr" data-cfg="receptionPlace"></p>
+    <!-- E. DIRECTIONS -->
+    <a class="btn" id="mapReception" target="_blank" rel="noopener">Get directions</a>
+  </section>
+
+  <!-- G. CLOSING -->
+  <section class="sec closing reveal" id="closing">
+    <div class="rule"></div>
+    <p class="quote" data-cfg="message"></p>
+    <p class="names" data-cfg="names"></p>
+    <button class="btn ghost" id="toTop" type="button">Back to top</button>
+  </section>
+</main>
+
+<noscript><style>.cover{display:none}body.locked{overflow:auto}.main{opacity:1!important;visibility:visible!important}</style></noscript>
+<script src="script.js"></script>
+</body>
+</html>

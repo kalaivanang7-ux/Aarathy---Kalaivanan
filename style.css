@@ -1,0 +1,60 @@
+/* Colours sampled from the invitation artwork */
+:root{--green:#38402a;--green-ink:#44533e;--gold:#c4a265;--cream:#f3ebd6;--serif:"Cormorant Garamond","Palatino Linotype",Palatino,Georgia,"Times New Roman",serif}
+*{box-sizing:border-box;margin:0}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{background:var(--cream);color:var(--green-ink);font-family:var(--serif);overflow-x:hidden;padding:env(safe-area-inset-top) 0 env(safe-area-inset-bottom)}
+body.locked{overflow:hidden;height:100%}
+img{display:block;max-width:100%;height:auto}
+
+/* Opening screen */
+.cover{position:fixed;inset:0;z-index:10;background:var(--green);display:flex;align-items:center;justify-content:center;transition:opacity 1.2s ease,transform 1.4s cubic-bezier(.6,.05,.2,1),visibility 0s 1.4s}
+.cover-img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;animation:breathe 9s ease-in-out infinite alternate}
+.open-btn{position:absolute;left:50%;bottom:calc(11% + env(safe-area-inset-bottom));transform:translateX(-50%);z-index:3;padding:15px 34px;min-height:48px;background:rgba(56,64,42,.82);color:var(--gold);border:1px solid var(--gold);font:600 1.05rem var(--serif);letter-spacing:.22em;cursor:pointer;animation:glow 2.8s ease-in-out infinite;white-space:nowrap}
+.open-btn:focus-visible,.btn:focus-visible{outline:2px solid var(--gold);outline-offset:3px}
+.cover.opening{opacity:0;transform:scale(1.18);pointer-events:none;visibility:hidden}
+@keyframes breathe{to{transform:scale(1.025)}}
+@keyframes glow{50%{box-shadow:0 0 22px rgba(196,162,101,.55)}}
+
+/* Floating petals */
+.petals{position:absolute;inset:0;overflow:hidden;pointer-events:none;z-index:2}
+.petal{position:absolute;top:-30px;width:12px;height:16px;background:var(--gold);opacity:.65;border-radius:80% 0 80% 0;animation:fall linear infinite}
+@keyframes fall{to{transform:translateY(112vh) translateX(var(--dx)) rotate(540deg)}}
+
+/* Main page */
+.main{opacity:0;visibility:hidden;transition:opacity 1.4s ease .5s}
+.main.show{opacity:1;visibility:visible}
+.sec{max-width:560px;margin:0 auto;padding:0 18px}
+.card-sec{padding-top:18px;padding-bottom:18px}
+.card-img{width:100%;box-shadow:0 10px 34px rgba(56,64,42,.22);border:1px solid rgba(196,162,101,.6)}
+.scroll-hint{text-align:center;color:var(--gold);font-size:2rem;line-height:1;animation:nudge 1.8s ease-in-out infinite}
+@keyframes nudge{50%{transform:translateY(7px)}}
+
+.details{text-align:center;padding-top:46px;padding-bottom:50px}
+.details h2{font:500 2.1rem var(--serif);letter-spacing:.3em;text-indent:.3em;color:var(--green)}
+.rule{width:96px;height:1px;margin:18px auto 24px;background:linear-gradient(90deg,transparent,var(--gold),transparent)}
+.quote{font-style:italic;font-size:1.18rem;line-height:1.6;max-width:30ch;margin:0 auto 22px}
+.big{font-size:1.7rem;letter-spacing:.16em;color:var(--green)}
+.mid{font-size:1.25rem;letter-spacing:.14em;margin:6px 0 20px}
+.venue{font-size:1.3rem;font-weight:600;letter-spacing:.1em;color:var(--green)}
+.addr{font-size:1.1rem;letter-spacing:.08em;margin:4px 0 26px}
+.count{display:flex;justify-content:center;gap:12px;margin:0 0 30px}
+.count div{min-width:64px;padding:10px 4px;border:1px solid var(--gold)}
+.count b{display:block;font:600 1.6rem var(--serif);color:var(--green)}
+.count span{font-size:.78rem;letter-spacing:.1em}
+
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding:12px 30px;background:var(--green);color:var(--gold);border:1px solid var(--green);font:600 1rem var(--serif);letter-spacing:.2em;text-decoration:none;cursor:pointer;transition:background .3s,color .3s}
+.btn:hover{background:transparent;color:var(--green)}
+.btn.ghost{background:transparent;color:var(--green);border-color:var(--gold)}
+.closing{text-align:center;padding-top:30px;padding-bottom:70px}
+.names{font:500 1.6rem var(--serif);letter-spacing:.22em;color:var(--green);margin-bottom:28px}
+
+/* Gentle reveal on scroll */
+.reveal{opacity:0;transform:translateY(22px);transition:opacity 1.1s ease,transform 1.1s ease}
+.reveal.in{opacity:1;transform:none}
+
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation:none!important;transition-duration:.01ms!important;transition-delay:0s!important}
+  .reveal{opacity:1;transform:none}
+  .petals{display:none}
+}
